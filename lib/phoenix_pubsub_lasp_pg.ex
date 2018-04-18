@@ -1,0 +1,2 @@
+defmodule PhoenixPubsubLaspPg do
+end

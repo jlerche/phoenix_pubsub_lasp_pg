@@ -39,6 +39,9 @@ defmodule Phoenix.PubSub.LaspPG do
     supervise(children, strategy: :rest_for_one)
   end
 
+  def node_name(nil), do: node()
+  def node_name(configured_name), do: configured_name
+
   defp name!(opts) do
     case Keyword.fetch(opts, :name) do
       {:ok, name} ->

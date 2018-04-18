@@ -3,7 +3,7 @@
 [Lasp PG](https://lasp-lang.readme.io/docs/what-is-lasp-pg) is a process group library written using [Lasp](https://lasp-lang.readme.io/docs/what-is-lasp), which
 is a relatively new project to help write distributed applications. It bypasses
 distributed Erlang and relies on CRDTs for its programming model. To this end,
-it also encourages the programmer to use special operations for data manipulation. Lasp PG itself is pretty close to a drop in replacement for `pg2`, but with a stronger consistency model.
+it also encourages the programmer to use special operations for data manipulation that guarantee commutativity and convergence. Lasp PG itself is pretty close to a drop in replacement for `pg2`, but with a stronger consistency model.
 
 Lasp is still pretty experimental, so use with caution!
 

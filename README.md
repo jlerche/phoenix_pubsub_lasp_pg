@@ -1,21 +1,26 @@
 # PhoenixPubsubLaspPg
 
-**TODO: Add description**
+[Lasp PG](https://lasp-lang.readme.io/docs/what-is-lasp-pg) is a process group library written using (Lasp)[https://lasp-lang.readme.io/docs/what-is-lasp], which
+is a relatively new project to help write distributed applications. It bypasses
+distributed Erlang and relies on CRDTs for its programming model. To this end,
+it also encourages the programmer to use special operations for data manipulation. Lasp PG itself is pretty close to a drop in replacement for `pg2`, but with a stronger consistency model.
 
-## Installation
+Lasp is still pretty experimental, so use with caution!
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `phoenix_pubsub_lasp_pg` to your list of dependencies in `mix.exs`:
+## Usage
+
+To use as your PubSub adapter, add it to your dependencies and Endpoint config
 
 ```elixir
+# mix.exs
 def deps do
   [
-    {:phoenix_pubsub_lasp_pg, "~> 0.1.0"}
+    {:phoenix_pubsub_lasp_pg, git: "https://github.com/jlerche/phoenix_pubsub_lasp_pg.git"}
   ]
 end
+
+# config/config.exs
+config :my_app, MyApp.Endpoint,
+  pubsub: [name: MyApp.PubSub, adapter: Phoenix.PubSub.LaspPG]
 ```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/phoenix_pubsub_lasp_pg](https://hexdocs.pm/phoenix_pubsub_lasp_pg).
-
+The options are the same as `Phoenix.PubSub.PG2`, see its documentation for more.

@@ -4,7 +4,7 @@ defmodule Phoenix.PubSub.LaspPGServer do
 
   def init({server_name, pool_size}) do
     lasp_pg_group = lasp_pg_namespace(server_name)
-    {:ok, value} = :lasp_pg.join(lasp_pg_group, self())
+    {:ok, _value} = :lasp_pg.join(lasp_pg_group, self())
     {:ok, %{name: server_name, pool_size: pool_size}}
   end
 
